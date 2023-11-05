@@ -15,12 +15,16 @@ DONE 3. position buttons logically
     DONE 3d. 0 key at bottom (larger?)
 
 JAVA:
-DONE 1. Pull elements from index.html
-DONE 2. create all operator functions
-    2a. Addition
-    2b. Subtraction
-    2c. Multiplication
-    2d. Division
-DONE 3. create event listeners
-4. create equation-building function
-5. build function to build equation before calculating
+1. Create following variables:
+    1a. Number keys
+    1b. Operator keys
+    1c. Equals key
+    1d. Reset key
+    1e. Storage for inputs before operator
+    1f. Storage for inputs after operator
+    1g. Storage for entire equation before calculation
+2. Create function to add numbers to input storage
+    2a. pre-operator
+    2b. post-operator
+3. Create system to allow multiple digits to store at time of operator selection
+4. Create main calculation function

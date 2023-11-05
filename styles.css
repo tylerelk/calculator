@@ -28,7 +28,7 @@
     padding-left: 30px;
 }
 
-#zero {
+#zero-container {
     grid-area: 5 / 1 / 6 / 4;
     margin: 10px auto;
 }
@@ -44,7 +44,7 @@
     font-size: 4rem;
 }
 
-#zero button {
+#zero {
     width: 20rem;
     height: 10rem;
 }
@@ -53,4 +53,9 @@
     width: 10rem;
     height: 8rem;
     font-size: 4rem;
+}
+
+#reset {
+    width: 7rem;
+    height: 2rem;
 }
