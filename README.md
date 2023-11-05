@@ -7,12 +7,12 @@ DONE 3. Build calculator buttons with unique IDs
 
 CSS:
 DONE 1. Position body in center of viewport
-2. position screen at top of body
-3. position buttons logically
-    3a. operators on RIGHT
-    3b. equal sign at BOTTM RIGHT
-    3c. numbers from CENTER to LEFT in a grid
-    3d. 0 key at bottom (larger?)
+DONE 2. position screen at top of body
+DONE 3. position buttons logically
+    DONE 3a. operators on RIGHT
+    DONE 3b. equal sign at BOTTM RIGHT
+    DONE 3c. numbers from CENTER to LEFT in a grid
+    DONE 3d. 0 key at bottom (larger?)
 
 JAVA:
 DONE 1. Pull elements from index.html

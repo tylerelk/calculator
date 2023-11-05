@@ -29,3 +29,4 @@ function funcMultiply(inputA, inputB) {
 function funcDivide(inputA, inputB) {
     return inputA / inputB;
 }
+
