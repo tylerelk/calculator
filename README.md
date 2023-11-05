@@ -21,5 +21,6 @@ DONE 2. create all operator functions
     2b. Subtraction
     2c. Multiplication
     2d. Division
-3. create event listeners
+DONE 3. create event listeners
 4. create equation-building function
+5. build function to build equation before calculating

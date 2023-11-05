@@ -30,3 +30,72 @@ function funcDivide(inputA, inputB) {
     return inputA / inputB;
 }
 
+one.addEventListener('click', () => {
+    screen.textContent = '1';
+    return 1;
+})
+
+two.addEventListener('click', () => {
+    screen.textContent = '2';
+    return 2;
+})
+
+three.addEventListener('click', () => {
+    screen.textContent = '3';
+    return 3;
+})
+
+four.addEventListener('click', () => {
+    screen.textContent = '4';
+    return 4;
+})
+
+five.addEventListener('click', () => {
+    screen.textContent = '5';
+    return 5;
+})
+
+six.addEventListener('click', () => {
+    screen.textContent = '6';
+    return 6;
+})
+
+seven.addEventListener('click', () => {
+    screen.textContent = '7';
+    return 7;
+})
+
+eight.addEventListener('click', () => {
+    screen.textContent = '8';
+    return 8;
+})
+
+nine.addEventListener('click', () => {
+    screen.textContent = '9';
+    return 9;
+})
+
+plus.addEventListener('click', () => {
+    screen.textContent = '+';
+    return '+';
+})
+
+minus.addEventListener('click', () => {
+    screen.textContent = '-';
+    return '-';
+})
+
+multiply.addEventListener('click', () => {
+    screen.textContent = 'x';
+    return 'x';
+})
+
+divide.addEventListener('click', () => {
+    screen.textContent = '/';
+    return '/';
+})
+
+zero.addEventListener('click', () => {
+    screen.textContent = '0';
+    return 0;
+})
