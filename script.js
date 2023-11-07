@@ -1,13 +1,14 @@
 const numbers = document.querySelector('#number-wrapper');
 const operators = document.querySelector('#operation-wrapper');
-let opSwitch = false;
 const zero = document.querySelector('#zero');
 const equals = document.querySelector('#operate');
 const display = document.querySelector('#calculation');
+let opSwitch = 0;
 
-let num1,
-  num2,
-  selectedOperator;
+let num1 = '',
+  num2 = '',
+  selectedOperator = '',
+  returnedResult = '';
 
 numbers.addEventListener('click', receiveNumber);
 operators.addEventListener('click', receiveOperator);
@@ -33,39 +34,38 @@ function receiveOperator(o) {
   if (o.target !== o.currentTarget) {
     targetOperator = o.target.textContent;
   }
-  switch (opSwitch) {
-    case false:
-      num1 = Number(display.textContent);
-      display.textContent = '';
-      break;
-    case true:
-      num2 = Number(display.textContent);
-      display.textContent = '';
-      break;
-  };
-  opSwitch = true;
+  num1 = Number(display.textContent);
+  opSwitch = 1;
+  display.textContent = '';
   return selectedOperator = targetOperator;
 }
 
-function calculation(num1, num2, selectedOperator) {
-  // console.log('CLICKING THIS WILL EVALUATE')
-  num2 = Number(display.textContent);
-  let result;
-  if (opSwitch = false) {
+function calculation() {
+  if (opSwitch = 0) {
     return 'ERROR';
   } else {
-    result = function() {
-      switch (selectedOperator) {
-        case '+':
-          return result = num1 + num2;
-        case '-':
-          return result = num1 - num2;
-        case 'x':
-          return result = num1 * num2;
-        case '/':
-          return result = num1 / num2;
-      }
-    }
+    num2 = Number(display.textContent);
+    switch (selectedOperator) {
+      case '+':
+        returnedResult = num1 + num2;
+        display.textContent = returnedResult;
+        opSwitch = 0;
+        break;
+      case '-':
+        returnedResult = num1 - num2;
+        display.textContent = returnedResult;
+        opSwitch = 0;
+        break;
+      case 'x':
+        returnedResult = num1 * num2;
+        display.textContent = returnedResult;
+        opSwitch = 0;
+        break;
+      case '/':
+        returnedResult = num1 / num2;
+        display.textContent = returnedResult;
+        opSwitch = 0;
+        break;
+    };
   }
-  display.textContent = result;
 }
