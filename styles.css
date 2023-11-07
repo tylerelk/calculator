@@ -20,6 +20,8 @@
     height: 7rem;
     margin-left: 6rem;
     margin-top: 3rem;
+    display: flex;
+    justify-content: space-between;
 }
 
 #number-wrapper {
