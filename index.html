@@ -1,43 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-    <div id="calculator-body">
-        <div id="screen">
-            <h1 id="calculation"></h1>
-            <h2 id="running-total"></h2>
+    <div class="calculator">
+        <div class="output">
+            <div class="previous-input"></div>
+            <div class="current-input"></div>
         </div>
-        <button id="reset" class="button">RESET</button>
-        <div id="number-wrapper">
-            <button id="one" class="number-button">1</button>
-            <button id="two" class="number-button">2</button>
-            <button id="three" class="number-button">3</button>
-            <button id="four" class="number-button">4</button>
-            <button id="five" class="number-button">5</button>
-            <button id="six" class="number-button">6</button>
-            <button id="seven" class="number-button">7</button>
-            <button id="eight" class="number-button">8</button>
-            <button id="nine" class="number-button">9</button>
-        </div>
-        <div id="zero-container">
-            <button id="zero" class="number-button">0</button>
-        </div>
-        <div id="operation-wrapper">
-            <button id="plus" class="operation-button">+</button>
-            <button id="minus" class="operation-button">-</button>
-            <button id="multiply" class="operation-button">x</button>
-            <button id="divide" class="operation-button">/</button>
-        </div>
-        <button id="operate">=</button>
+        <button class="spanned" id="clear">CLEAR</button>
+        <button class="input" id="delete">DEL</button>
+        <button class="input operator">÷</button>
+        <button class="input number">1</button>
+        <button class="input number">2</button>
+        <button class="input number">3</button>
+        <button class="input operator">+</button>
+        <button class="input number">4</button>
+        <button class="input number">5</button>
+        <button class="input number">6</button>
+        <button class="input operator">-</button>
+        <button class="input number">7</button>
+        <button class="input number">8</button>
+        <button class="input number">9</button>
+        <button class="input operator">x</button>
+        <button class="input number">.</button>
+        <button class="input number">0</button>
+        <button class="spanned" id="equals">=</button>
     </div>
 </body>
-
 </html>
+
 <script src="script.js"></script>

@@ -1,105 +1,106 @@
-// Pull from HTML
-
-const numbers = document.querySelector('#number-wrapper');
-const operators = document.querySelector('#operation-wrapper');
-const zero = document.querySelector('#zero');
-const equals = document.querySelector('#operate');
-const display = document.querySelector('#calculation');
-const accummulator = document.querySelector('#running-total');
-const resetButton = document.querySelector('#reset');
-let opSwitch = 0;
-
-// Start accumulator at 0;
-accummulator.textContent = '0';
-// Declare reused variables
-
-let num1 = '',
-  num2 = '',
-  selectedOperator = '',
-  returnedResult = '';
-
-// Add event listeners to button groups
-
-numbers.addEventListener('click', receiveNumber);
-operators.addEventListener('click', receiveOperator);
-zero.addEventListener('click', receiveZero);
-equals.addEventListener('click', calculation);
-
-resetButton.addEventListener ('click', () => {
-  num1 = '';
-  num2 = '';
-  opSwitch = 0;
-  selectedOperator = '';
-  returnedResult = '';
-  display.textContent = '';
-  accummulator.textContent = '0';
-})
-
-// Behavior to place numbers into display
-
-function receiveNumber(n) {
-  if (n.target !== n.currentTarget) {
-    let targetNumber = n.target.textContent;
-    display.textContent += targetNumber;
+class Calculator {
+  constructor(previousInput, currentInput) {
+    this.previousInput = previousInput;
+    this.currentInput = currentInput;
+    this.clear();
   }
-}
 
-function receiveZero(z) {
-  let targetZero = z.target.textContent;
-  display.textContent += targetZero;
-}
-
-// TO DO: receiveOperator should act as calculation() when entering multiple operations
-
-function receiveOperator(o) {
-  let targetOperator;
-  if (o.target !== o.currentTarget) {
-    targetOperator = o.target.textContent;
+  clear() {
+    this.currentOperand = '';
+    this.previousOperand = '';
+    this.operator = undefined;
   }
-  if (opSwitch === 1) {
-    calculation();
-  } else {
-    num1 = Number(display.textContent);
-    opSwitch = 1;
+
+  delete() {
+    this.currentOperand = this.currentOperand.toString().slice(0, -1);
   }
-  accummulator.textContent = display.textContent;
-  display.textContent = '';
-  return selectedOperator = targetOperator;
-}
 
-//Basic calculation function
+  appendNumber(number) {
+    if (number === '.' && this.currentOperand.includes('.')) return;
+    this.currentOperand = this.currentOperand.toString() + number.toString();
+  }
 
-function calculation() {
-  if (opSwitch === 0 && display.textContent === '') {
-    return display.textContent = 'ERROR';
-  } else {
-    num2 = Number(display.textContent);
-    switch (selectedOperator) {
+  operatorChoice(operator) {
+    if (this.currentOperand === '') return;
+    if (this.previousOperand != '') {
+      this.caluclate();
+    }
+    this.operator = operator;
+    this.previousOperand = this.currentOperand;
+    this.currentOperand = '';
+  }
+
+  caluclate() {
+    let computation;
+    const previous = Number(this.previousOperand);
+    const current = Number(this.currentOperand);
+    if (isNaN(previous) | isNaN(current)) return;
+    switch (this.operator) {
       case '+':
-        returnedResult = num1 + num2;
-        display.textContent = returnedResult;
-        opSwitch = 0;
+        computation = previous + current;
         break;
       case '-':
-        returnedResult = num1 - num2;
-        display.textContent = returnedResult;
-        opSwitch = 0;
+        computation = previous - current;
         break;
       case 'x':
-        returnedResult = num1 * num2;
-        display.textContent = returnedResult;
-        opSwitch = 0;
+        computation = previous * current;
         break;
-      case '/':
-        if (num2 === 0) {
-          display.textContent = 'FUCK YOU';
-          break;
-        } else {
-          returnedResult = num1 / num2;
-          display.textContent = returnedResult;
-          opSwitch = 0;
-          break;
-        }
-    };
+      case '÷':
+        computation = previous / current;
+        break;
+      default:
+        return;
+    }
+    this.currentOperand = computation;
+    this.operator = undefined;
+    this.previousOperand = '';
+  }
+
+  updateOutput() {
+    this.currentInput.textContent = this.currentOperand;
+    if (this.operator != null) {
+      this.previousInput.textContent = `${this.previousOperand} ${this.operator}`;
+    } else {
+      this.previousInput.textContent = '';
+    }
   }
 }
+
+const numberButton = document.querySelectorAll('.number');
+const operatorButton = document.querySelectorAll('.operator');
+const deleteButton = document.querySelector('#delete');
+const clearButton = document.querySelector('#clear');
+const equalsButton = document.querySelector('#equals');
+const previousInput = document.querySelector('.previous-input');
+const currentInput = document.querySelector('.current-input');
+
+const calculator = new Calculator(previousInput, currentInput);
+
+numberButton.forEach(button => {
+  button.addEventListener('click', () => {
+    calculator.appendNumber(button.textContent);
+    calculator.updateOutput();
+  })
+})
+
+operatorButton.forEach(button => {
+  button.addEventListener('click', () => {
+    calculator.operatorChoice(button.textContent);
+    calculator.updateOutput();
+  })
+})
+
+equalsButton.addEventListener('click', button => {
+  calculator.caluclate();
+  calculator.updateOutput();
+})
+
+clearButton.addEventListener('click', button => {
+  calculator.clear();
+  calculator.updateOutput();
+})
+
+deleteButton.addEventListener('click', button => {
+  calculator.delete();
+  calculator.updateOutput();
+})
