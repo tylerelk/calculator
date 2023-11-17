@@ -17,18 +17,27 @@ body {
     background: linear-gradient(to right, var(--grey), var(--black));
 }
 
+.output {
+    border: 2px solid black;
+}
+
 .calculator {
+    width: fit-content;
+    height: fit-content;
+    margin: auto;
+    border: 5px solid black;
+    border-radius: 10px;
     display: grid;
     justify-content: center;
     align-content: center;
-    min-height: 100vh;
     grid-template-columns: repeat(4, 100px);
     grid-template-rows: minmax(120px, auto) repeat(5, 100px);
 }
 
 .input, .spanned {
     font-size: 2rem;
-    border: 1px solid var(--black);
+    border: 3px solid var(--black);
+    border-radius: 10px;
     background-color: var(--white);
     outline: none;
 }
