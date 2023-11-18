@@ -25,6 +25,7 @@ body {
     width: fit-content;
     height: fit-content;
     margin: auto;
+    background: var(--black);
     border: 5px solid black;
     border-radius: 10px;
     display: grid;
@@ -37,13 +38,14 @@ body {
 .input, .spanned {
     font-size: 2rem;
     border: 3px solid var(--black);
-    border-radius: 10px;
+    border-radius: 50px;
     background-color: var(--white);
     outline: none;
 }
 
 .input:hover, .spanned:hover {
     color: var(--red);
+    box-shadow: 0 0 0 2px var(--red) inset;
 }
 
 .spanned {
@@ -53,6 +55,7 @@ body {
 .output {
     grid-column: 1 / -1;
     background-color: var(--red);
+    border-bottom: 5px solid black;
     display: flex;
     align-items: flex-end;
     justify-content: space-around;
