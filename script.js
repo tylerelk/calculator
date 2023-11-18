@@ -16,6 +16,10 @@ clearButton.addEventListener('click', () => {
     previousOperand.textContent = '';
 })
 
+deleteButton.addEventListener('click', () => {
+    currentOperand.textContent = currentOperand.textContent.slice(0, -1);
+})
+
 numberButton.forEach(button => {
     button.addEventListener('click', () => {
         currentOperand.textContent += button.textContent;
