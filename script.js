@@ -22,6 +22,7 @@ deleteButton.addEventListener('click', () => {
 
 numberButton.forEach(button => {
     button.addEventListener('click', () => {
+        if (currentOperand.textContent.includes('.') && button.textContent == '.') return;
         currentOperand.textContent += button.textContent;
     })
 })
@@ -44,7 +45,7 @@ operatorButton.forEach(opButton => {
 })
 
 equalsButton.addEventListener('click', () => {
-    if (currentOperand == '' || previousOperand == '') {
+    if (currentOperand.textContent == '' || previousOperand.textContent == '') {
         return
     } else {
         operate();
