@@ -1,8 +1,8 @@
 :root {
-    --black: #3C3C3C;
-    --white: #FDFFFC;
-    --red: #C4315F;
-    --grey: #4B584E;
+    --black: #CBE896;
+    --white: #fffffc;
+    --red: rgba(197, 43, 92, 0.658);
+    --grey: #AAC0AA;
 }
 
 * {
@@ -75,10 +75,17 @@ body {
     font-size: 2.5rem;
 }
 
+h4 {
+    text-align: center;
+}
+
+h4 a {
+    color: black;
+}
+
 @media (max-width: 600px) {
     * {
         color: black;
-        background-color: #4B584E;
         font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
     }
 }
